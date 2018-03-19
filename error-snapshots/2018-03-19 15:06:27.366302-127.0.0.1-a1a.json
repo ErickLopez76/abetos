@@ -1,0 +1,165 @@
+{
+ "etype": "<type 'exceptions.AttributeError'>", 
+ "evalue": "AttributeError(\"'int' object has no attribute 'strip'\",)", 
+ "exception": {
+  "args": "(\"'int' object has no attribute 'strip'\",)", 
+  "message": "\"'int' object has no attribute 'strip'\""
+ }, 
+ "frames": [
+  {
+   "call": "(request=<Request 'http://localhost:8000/' [POST]>)", 
+   "dump": {
+    "frappe. handler": "<module 'frappe.handler' from '/home/administrador/frappe-bench/apps/frappe/frappe/handler.pyc'>", 
+    "frappe.handler. handle": "<function handle>", 
+    "global frappe": "<module 'frappe' from '/home/administrador/frappe-bench/apps/frappe/frappe/__init__.pyc'>", 
+    "response": "None"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/app.py", 
+   "func": "application", 
+   "lines": {
+    "60": "", 
+    "61": "\t\tif frappe.local.form_dict.cmd:", 
+    "62": "\t\t\tresponse = frappe.handler.handle()", 
+    "63": "", 
+    "64": "\t\telif frappe.request.path.startswith(\"/api/\"):"
+   }, 
+   "lnum": 62
+  }, 
+  {
+   "call": "()", 
+   "dump": {
+    "cmd": "u'frappe.client.insert'", 
+    "data": "None", 
+    "global execute_cmd": "<function execute_cmd>"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/handler.py", 
+   "func": "handle", 
+   "lines": {
+    "20": "", 
+    "21": "\tif cmd!='login':", 
+    "22": "\t\tdata = execute_cmd(cmd)", 
+    "23": "", 
+    "24": "\tif data:"
+   }, 
+   "lnum": 22
+  }, 
+  {
+   "call": "(cmd=u'frappe.client.insert', from_async=False)", 
+   "dump": {
+    "frappe. call": "<function call>", 
+    "frappe. form_dict": "{'doc': u'{\"docstatus\":0,\"doctype\":\"Lineas\",\"nam..._linea\":\"PINO\"}', 'cmd': u'frappe.client.insert'}", 
+    "global frappe": "<module 'frappe' from '/home/administrador/frappe-bench/apps/frappe/frappe/__init__.pyc'>", 
+    "method": "<function insert>"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/handler.py", 
+   "func": "execute_cmd", 
+   "lines": {
+    "51": "\tis_whitelisted(method)", 
+    "52": "", 
+    "53": "\treturn frappe.call(method, **frappe.form_dict)", 
+    "54": "", 
+    "55": ""
+   }, 
+   "lnum": 53
+  }, 
+  {
+   "call": "(fn=<function insert>, *args=(), **kwargs={'cmd': u'frappe.client.insert', 'doc': u'{\"docstatus\":0,\"doctype\":\"Lineas\",\"name\":\"New ...nk_triggers\":1,\"codigo\":1,\"nombre_linea\":\"PINO\"}'})", 
+   "dump": {
+    "args": "()", 
+    "fn": "<function insert>", 
+    "newargs": "{'doc': u'{\"docstatus\":0,\"doctype\":\"Lineas\",\"name\":\"New ...nk_triggers\":1,\"codigo\":1,\"nombre_linea\":\"PINO\"}'}"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/__init__.py", 
+   "func": "call", 
+   "lines": {
+    "937": "\t\tdel newargs[\"flags\"]", 
+    "938": "", 
+    "939": "\treturn fn(*args, **newargs)", 
+    "940": "", 
+    "941": "def make_property_setter(args, ignore_validate=False, validate_fields_for_doctype=True):"
+   }, 
+   "lnum": 939
+  }, 
+  {
+   "call": "(doc={u'__islocal': 1, u'__run_link_triggers': 1, u'__unsaved': 1, u'codigo': 1, u'docstatus': 0, u'doctype': u'Lineas', u'name': u'New Lineas 1', u'nombre_linea': u'PINO', u'owner': u'Administrator'})", 
+   "dump": {
+    ").insert": "undefined", 
+    "doc": "{u'__islocal': 1, u'__run_link_triggers': 1, u'__unsaved': 1, u'codigo': 1, u'docstatus': 0, u'doctype': u'Lineas', u'name': u'New Lineas 1', u'nombre_linea': u'PINO', u'owner': u'Administrator'}", 
+    "frappe. get_doc": "<function get_doc>", 
+    "global frappe": "<module 'frappe' from '/home/administrador/frappe-bench/apps/frappe/frappe/__init__.pyc'>"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/client.py", 
+   "func": "insert", 
+   "lines": {
+    "141": "\t\treturn parent.as_dict()", 
+    "142": "\telse:", 
+    "143": "\t\tdoc = frappe.get_doc(doc).insert()", 
+    "144": "\t\treturn doc.as_dict()", 
+    "145": ""
+   }, 
+   "lnum": 143
+  }, 
+  {
+   "call": "(self=<frappe.model.document.Document object>, ignore_permissions=None, ignore_if_duplicate=False, ignore_mandatory=None)", 
+   "dump": {
+    "self": "<frappe.model.document.Document object>", 
+    "self. set_new_name": "<bound method Document.set_new_name of <frappe.model.document.Document object>>"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/model/document.py", 
+   "func": "insert", 
+   "lines": {
+    "210": "\t\tself.check_if_latest()", 
+    "211": "\t\tself.run_method(\"before_insert\")", 
+    "212": "\t\tself.set_new_name()", 
+    "213": "\t\tself.set_parent_in_children()", 
+    "214": "\t\tself.validate_higher_perm_levels()"
+   }, 
+   "lnum": 212
+  }, 
+  {
+   "call": "(self=<frappe.model.document.Document object>, force=False)", 
+   "dump": {
+    "global set_new_name": "<function set_new_name>", 
+    "self": "<frappe.model.document.Document object>"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/model/document.py", 
+   "func": "set_new_name", 
+   "lines": {
+    "370": "\t\t\treturn", 
+    "371": "", 
+    "372": "\t\tset_new_name(self)", 
+    "373": "\t\t# set name for children", 
+    "374": "\t\tfor d in self.get_all_children():"
+   }, 
+   "lnum": 372
+  }, 
+  {
+   "call": "(doc=<frappe.model.document.Document object>)", 
+   "dump": {
+    "). strip": "<built-in method strip of unicode object>", 
+    "doc": "<frappe.model.document.Document object>", 
+    "doc. get": "<bound method Document.get of <frappe.model.document.Document object>>", 
+    "doc. name": "None", 
+    "fieldname": "u'codigo'"
+   }, 
+   "file": "/home/administrador/frappe-bench/apps/frappe/frappe/model/naming.py", 
+   "func": "set_new_name", 
+   "lines": {
+    "41": "\t\tif autoname.startswith('field:'):", 
+    "42": "\t\t\tfieldname = autoname[6:]", 
+    "43": "\t\t\tdoc.name = (doc.get(fieldname) or \"\").strip()", 
+    "44": "\t\t\tif not doc.name:", 
+    "45": "\t\t\t\tfrappe.throw(_(\"{0} is required\").format(doc.meta.get_label(fieldname)))"
+   }, 
+   "lnum": 43
+  }
+ ], 
+ "locals": {
+  "autoname": "u'field:codigo'", 
+  "doc": "<frappe.model.document.Document object>", 
+  "fieldname": "u'codigo'"
+ }, 
+ "pyver": "Python 2.7.13: /home/administrador/frappe-bench/env/bin/python (prefix: /home/administrador/frappe-bench/env)", 
+ "timestamp": "2018-03-19 15:06:27.366387", 
+ "traceback": "Traceback (most recent call last):\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/app.py\", line 62, in application\n    response = frappe.handler.handle()\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/handler.py\", line 22, in handle\n    data = execute_cmd(cmd)\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/handler.py\", line 53, in execute_cmd\n    return frappe.call(method, **frappe.form_dict)\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/__init__.py\", line 939, in call\n    return fn(*args, **newargs)\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/client.py\", line 143, in insert\n    doc = frappe.get_doc(doc).insert()\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/model/document.py\", line 212, in insert\n    self.set_new_name()\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/model/document.py\", line 372, in set_new_name\n    set_new_name(self)\n  File \"/home/administrador/frappe-bench/apps/frappe/frappe/model/naming.py\", line 43, in set_new_name\n    doc.name = (doc.get(fieldname) or \"\").strip()\nAttributeError: 'int' object has no attribute 'strip'\n"
+}
